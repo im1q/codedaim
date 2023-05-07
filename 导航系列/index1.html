@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<style>
+		/* 基本配置 */
+		* {
+			padding: 0px;
+			margin: 0px;
+		}
+		body {
+			display: flex;
+			align-items: center;
+			align-content: center;
+			justify-content: space-around;
+			background-color: #eceff1;
+		}
+		.container {
+			margin-top: 70px;
+			width: 500px;
+			height: 500px;
+			position: relative;
+		}
+		/* 设置基本样式 */
+		.circle {
+			width: 70px;
+			height: 70px;
+			background-color: #f9403d;
+			border-radius: 50%;
+
+			display: flex;
+			text-align: center;
+			justify-content: center;
+			align-content: center;
+			align-items: center;
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+		}
+
+		.circle img {
+			width: 75%;
+		}
+
+		.items li {
+			width: 70px;
+			height: 70px;
+			background-color: #f9403d;
+			border-radius: 50%;
+			display: flex;
+			text-align: center;
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			z-index: -1;
+			display: block;
+			transition: 0.5s;
+		}
+
+		li img {
+			width: 75%;
+			margin-top: 8px;
+		}
+
+		/* 这是通过过渡实现的效果 */
+		#menu:not(:checked) ~ .items li:nth-child(1) {
+			transform: translate(-80px, -70px);
+		}
+		#menu:not(:checked) ~ .items li:nth-child(2) {
+			transform: translate(-80px, 70px);
+		}
+		#menu:not(:checked) ~ .items li:nth-child(3) {
+			transform: translate(80px, -70px);
+			/*transform: translate(80px,70px);*/
+			border: 3px solid blue;
+		}
+		/*#menu:not(:checked) ~ .items li:nth-child(4) {
+			transform: translate(80px, 70px);
+			border: 3px solid black;
+		}
+		/*#menu:not(:checked) ~ .item*/
+
+
+
+		#menu:not(:checked) ~ label .circle {
+			animation-name: disappear;
+			animation-duration: 180.5ms;
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+		}
+
+	/*	@keyframes disappear {
+			0% {
+				transform: scale(1);
+			}
+			50% {
+				transform: scale(1.2);
+
+			}
+			100% {
+				transform: scale(0.85) rotate(-45deg);
+			}
+		}*/
+
+		#menu:checked ~ label .circle {
+			animation-name: appear;
+			animation-duration: 0.5ms;
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+			border: 2px solid black;
+		}
+
+		#menu:checked ~ label .circle:hover {
+			width: 80px;
+			height: 80px;
+			bottom: 5px;
+			left: 5px;
+		}
+
+		@keyframes appear {/*这个是关于动画的效果；
+		如股票到达了0% 的时候的话*/
+			0% {
+				transform: scale(0.85) rotate(45deg);
+			}
+			50% {
+				transform: scale(1.2);
+			}
+			100% {
+				transform: scale(1);
+			}
+		}
+	</style>
+	<body>
+		<div class="container">
+			<input type="checkbox" id="menu" checked="checked" />
+			<label for="menu">
+				<div class="circle">
+					<img src="./img/plus.png" alt="" />
+				</div>
+			</label>
+			<ul class="items">
+				<li><img src="./img/plus.png" alt="" /></li>
+				<li><img src="./img/plus.png" alt="" /></li>
+				<li><img src="./img/plus.png" alt="" /></li>
+				<li><img src="./img/plus.png" alt="" /></li>
+			</ul>
+		</div>
+	</body>
+</html>

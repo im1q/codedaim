@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>myintex1.html</title>
+</head>
+<style>
+    *{
+        padding: 0;/*内边距的问题为0；使其这个东西充满怎个视野；
+        */
+        margin: 0;/*它的作用是将元素的外边距设为0，即将元素与周围元素的距离设为0。这个属性通常会在网页布局中使用，用于控制元素之间的间距和位置。*/
+    }
+    body {
+        display: flex;
+
+
+        align-items:center;/*这个东西是干嘛的？
+        */
+        align-content: center;
+        justify-content: space-around;
+
+
+        background-color: #eceff1;
+    }
+    .container {
+        margin-top: 70px;
+        width: 500px;
+        height: 500px;
+       position: relative;
+    }
+
+
+    .items li {
+        width: 70px;
+        height: 70px;
+        background-color: #f9403d;
+        border-radius: 50%;
+        display: flex;
+       text-align: center;
+       position: absolute;
+       bottom: 10px;
+        left: 10px;
+        z-index: -1;
+        display: block;
+        transition: 0.5s;
+    }
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+<div class="container">
+    <input type="checkbox" id="menu" checked="checked" />
+
+
+
+
+
+    <label for="menu">
+        <div class="circle">
+            <img src="./img/plus.png" alt="" />
+        </div>
+    </label>
+   <!---
+    <label for="mean">
+     <div　class ="circle">
+
+
+
+
+    ---->
+    <ul class="items">
+        <li><img src="./img/plus.png" alt="" /></li>
+        <li><img src="./img/plus.png" alt="" /></li>
+        <li><img src="./img/plus.png" alt="" /></li>
+        <li><img src="./img/plus.png" alt="" /></li>
+    </ul>
+</div>
+</body>
+</html>

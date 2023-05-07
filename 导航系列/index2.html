@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!--问题一这个方案没办法进行 结局人问题；
+		---->
+		<title>Document</title>
+	</head>
+	<style>
+		/* 基本配置 */
+		* {
+			padding: 0px;
+			margin: 0px;
+		}
+		body {
+			display: flex;
+			align-items: center;
+
+
+			align-content: center;
+		justify-content: space-around;
+/*属性用于在交叉轴上居中对齐 flex 容器内的所有子元素。属性用于在主轴上均匀地分布 flex 容器内的所有子元素，
+子元素之间的间距相等，并且子元素与容器之间的间距也相等。
+*/
+
+			background-color: #eceff1;
+		}
+		.container {
+			margin-top: 70px;
+			width: 500px;
+			height: 500px;
+			border: 2px solid red;
+			position: relative;
+		/*	top:200px;关于定位的属性： 这个属性是关于在这个昂开关的动东西，从而不会进行影响到其他的板块布局*/
+
+		}
+		/* 设置基本样式 */
+		.circle {
+			width: 70px;
+			height: 70px;
+			background-color: blue;
+
+			border-radius: 50%;/*进行画*/
+
+
+             border: 20px  solid red;
+			display: flex;
+          /*这个东西是关于display属性用于设置元素的显示方式*/
+
+			text-align: center;
+			justify-content: center;
+
+
+			align-content: center;
+			align-items: center;
+			position: absolute;
+
+
+
+			bottom: 110px;
+			left: 110px;/*这两个东西是关于位置的变化东；*/
+		}
+
+		.circle img {
+			width: 55%;
+		}
+
+		.items li {
+			width: 70px;
+			height: 70px;
+			background-color: black;
+			/*进行改变颜色的数据he jinx划分圆度*/
+			border-radius: 50%;
+			display: flex;
+			text-align: center;/*文本的中心星系；
+			*/
+
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+
+		     z-index: -1;
+			/*这个是进行覆盖的代码；z-index：-1；*/
+
+
+			display: block;
+
+			transition: 3s;/*这个是延时的效果*/
+		}
+
+
+
+
+
+		li img {
+			width: 75%;
+			margin-top: 8px;
+		}
+
+		/* 这是通过过渡实现的效果 */
+		#menu:not(:checked) ~ .items li:nth-child(1) {
+			transform: translate(-90px, -50px);
+		}
+		#menu:not(:checked) ~ .items li:nth-child(2) {
+			transform: translate(-90px, 50px);
+		}
+		#menu:not(:checked) ~ .items li:nth-child(3) {
+			transform: translate(90px, -50px);
+		}
+		/*
+	#menu:not(:checked) ~ .items li:nth-child(3) {
+			transform: translate(90px, -50px);
+		}
+
+
+
+		*/
+
+		#menu:not(:checked) ~ .items li:nth-child(4) {
+			transform: translate(90px, 50px);
+		}
+		#menu:not(:checked) ~ .items li:nth-child(5) {
+			transform: translate(0px, -100px);
+		}
+		#menu:not(:checked) ~ .items li:nth-child(6) {
+			transform: translate(0px, 100px);
+		}
+
+		#menu:not(:checked) ~ label .circle {
+			animation-name: disappear;
+			animation-duration: 180.5ms;
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+		}
+
+		@keyframes disappear {
+			0% {
+				transform: scale(1);
+			}
+			50% {
+				transform: scale(4) rotate(-45deg);
+				color:black;
+			}
+			100% {
+				transform: scale(0.85) rotate(-45deg);
+				/*这个东西scale(是一个关于缩小与放大的问题；rotate(-45deg是进行逆转45度))*/
+			}
+		}
+
+		#menu:checked ~ label .circle {
+			animation-name: appear;/*这个是动画的名字  animation-duration:指定动画的时间为0.5 秒，
+			animation-iteration-count:指定动画重复的次数；iteration-count 是重复的效果；
+			animation-fill-mode:forwards:指定在动画播放之前和之后元素应如何呈现*/
+			animation-duration: 0.5ms;
+			animation-iteration-count: 5;
+			animation-fill-mode: forwards;
+		}
+
+		#menu:checked ~ label .circle:hover {
+			width: 80px;
+			height: 80px;
+			bottom: 5px;
+			cursor: pointer;
+			left: 5px;
+		}
+
+		@keyframes appear {
+			0% {
+				transform: scale(0.85) rotate(45deg);
+			}
+			50% {
+				transform: scale(1.2);
+			}
+			100% {
+				transform: scale(1);
+			}
+		}
+	</style>
+	<body>
+
+		<div class="container">
+
+		点击该按钮<input type="checkbox" id="menu" checked="checked" />
+<!--checkbox 是一个空间   看id是带的一个地， checked 是一个人返回属性；这个是一个口子； cursor: pointer;
+--->
+			<label for="menu">
+				<div class="circle">
+					<li class="items">
+						<li><img src="./img/plus.png" alt="" /></li>
+					</ul>
+				</div>
+			</label>   <!----进行绑定的一个菜单数据；这个菜单的数据我有点不太里理解；
+
+			j--->
+			<ul class="items">
+				<li><img src="./img/plus.png" alt="" /></li>
+				<li><img src="./img/plus.png" alt="" /></li>
+				<li><img src="./img/plus.png" alt="" /></li>
+				<li><img src="./img/plus.png" alt="" /></li>
+				<li><img src="./img/plus.png" alt="" /></li>
+				<li><img src="./img/plus.png" alt="" /></li>
+			</ul>
+		</div>
+	</body>
+</html>
